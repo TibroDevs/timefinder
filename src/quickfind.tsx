@@ -7,7 +7,7 @@ export default function Command() {
         icon={Icon.Bird}
         title="Brisbane"
         subtitle="GMT+10"
-        accessories={[{ text: `10:00 pm`, icon: Icon.Clock }]}
+        accessories={[{ text: `10:00 pm :)`, icon: Icon.Clock }]}
         
       />
       <List.Item
