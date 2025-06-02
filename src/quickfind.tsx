@@ -1,39 +1,25 @@
 import { List, Icon } from "@raycast/api";
+import { getTimezonesWithOffsets } from "./getTimezones";
+import {DateTime} from "luxon"
 
 export default function Command() {
+  const options = getTimezonesWithOffsets()
   return (
     <List>
-      <List.Item
-        icon={Icon.Bird}
-        title="Brisbane"
-        subtitle="GMT+10"
-        accessories={[{ text: `10:00 pm`, icon: Icon.Clock }]}
-        
-      />
-      <List.Item
-        icon={Icon.Bird}
-        title="bob"
-      />
-      <List.Item
-        icon={Icon.Bird}
-        title="Greeting"
-      />
-      <List.Item
-        icon={Icon.Bird}
-        title="sfsfs"
-      />
-      <List.Item
-        icon={Icon.Bird}
-        title="dad"
-      />
-      <List.Item
-        icon={Icon.Bird}
-        title="baba"
-      />
-      <List.Item
-        icon={Icon.Bird}
-        title="hghg"
-      />
+      {options.map((option) => {
+        const city = option.name.split("/")[1].replace("_", " ")
+        const date = DateTime.now().setZone(option.name);
+        const dateString = date.toLocaleString(DateTime.TIME_24_SIMPLE);
+
+        return (
+          <List.Item
+            key={option.name}
+            title={city}
+            subtitle={option.offset}
+            accessories={[{ text:dateString}]}
+          />
+        );
+      })}
     </List>
   );
 }
