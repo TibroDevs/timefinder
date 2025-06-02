@@ -8,9 +8,9 @@
   "license": "MIT",
   "commands": [
     {
-      "name": "quickfind",
-      "title": "QuickFind",
-      "description": "Display popular timezones",
+      "name": "findtimezone",
+      "title": "Find Time Zone",
+      "description": "TimeFinder allows you to view popular timezones right in Raycast",
       "mode": "view"
     }
   ],
